@@ -2,7 +2,7 @@ Retrieves the details of an existing profile for a valid identifier. Supply the 
 
 # Attributes
 
-<strong> id </strong> `string`
+<strong> id</strong> `string`
 
 A unique identifier is referencing a user profile.
 
@@ -29,7 +29,7 @@ The variable must be equal to one of the values that have been predefined for it
 | INDIVIDUAL        | Description that relates the business model and its       operational access in the platform or organization.  |
 | FOUNDER           | Description that relates the business model and its       operational access in the platform or organization.  |
 
-<strong> stateOfFormation </strong> `string`
+<strong> stateOfFormation</strong> `string`
 
 The State in Which the Profile was formed if it's an Entity profile representing a business or company.
 
@@ -41,7 +41,7 @@ The country in which the profile was formed if it's an entity profile representi
 
 Preferred display name specified by the profile owner, if any. The maximum `string` length allowed is 1024 chars.
 
-<strong> name </strong> `string` </br> Full name of this profile. Maximum `string` length is 1024 chars.
+<strong> name</strong> `string` </br> Full name of this profile. Maximum `string` length is 1024 chars.
 
 <strong> jointAccountName</strong> `string` </br> Name of the joint account if it's a joint account type. Maximum `string` length is 1024 chars.
 

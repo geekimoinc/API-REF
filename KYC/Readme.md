@@ -1,6 +1,6 @@
-Operations related to validating individual identities.
+Background and Monitored Lists checks for KYC.
 
-Identity resource currently supports two types of validation checks :
+KYC resource currently supports two types of validation checks :
 
 1. Data to Check
 2. Profile to Check
