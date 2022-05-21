@@ -70,6 +70,6 @@ Use case Undefined.
 
 Use case Undefined.
 
-<any-key>: any
+`any-key`: `any value`
 
-Use case Undefined.
+Placeholder for set of `key:value` pair.

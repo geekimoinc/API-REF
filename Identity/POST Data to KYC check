@@ -1,6 +1,6 @@
-Data check to validate the authenticity of supplied data and respond with multiple statuses throughout its lifetime as it progresses through the verification flow. Supply the unique identity information of an individual in the request body and our API will respond with the corresponding identity validation results.
+Data check to validate the authenticity of supplied data and respond with multiple statuses throughout its lifetime as it progresses through the verification flow. Supply the unique identifying information of an individual in the request body, and our API will respond with the corresponding identity validation results.
 
-> In order to perform `/identity/kyc` validation, the following fields must be configured configured with valid values.
+> In order to perform `/identity/kyc` validation, the following fields must be configured with valid values.
 
 # Parameters
 
@@ -46,8 +46,8 @@ Specify the regional address of the applicant.
 
 The postcode (ZIP code) of the applicant's address. Constraints: 2 to 1024 chars.
 
-For UK postcodes, specify the value in the following format: SW4 6EH.
-For US postcodes, use ZIP format: 84121
+For UK postcodes, specify the value in the following format: `SW4 6EH.`
+For US postcodes, use ZIP format: `84121`
 
 
 <strong>country*</strong>: `enum`
@@ -61,11 +61,11 @@ Specify the current email address of the applicant.
 
 <strong>dateOfBirth*</strong> `date`
 
-Specify the date of birth of the applicant.
+Specify the date of birth of the applicant.Data formatted as _YY-MM-DD_.
 
 <strong>identificationNumbers*</strong> `[object]`
 
-Government issued identification documents object to check the authenticity of government-issued identity documents
+JSON object descriptor for government-issued numeral or string of numerals used for validating the authenticity of government-issued identity documents.
 
 <strong>type*</strong> `enum`
 
@@ -73,10 +73,11 @@ Specify the valid type of government issued document. Valid `enum` values are `s
 
 <strong>value*</strong> `string`
 
-Specify the identification number corresponding to the type of document.
+Specify the identification number corresponding to the type of document.Type of `ssn` supports both the full SSN or the last 4 digits. If the full SSN is provided then it must be in the format `xxx-xx-xxxx.`
 
 <strong> state </strong> `enum`
 
 Specify the state that issued the document. Valid `enum` values are.
 `AR┃DC┃DE┃FL┃GA┃KS┃LA┃MD┃MO┃MS┃NC┃OK┃SC┃TN┃TX┃WV┃AL┃CT┃IA┃IL┃IN┃ME┃MI┃MN┃NE┃NH┃NJ┃NY┃OH┃RI┃VT┃WI┃CA┃CO┃NM┃NV┃UT┃AZ┃ID┃MT┃ND┃OR┃SD┃WA┃WY┃HI┃AK┃KY┃MA┃PA┃VA`
 
+Only required for the `driving_licence` type in United States of America
