@@ -1,0 +1,303 @@
+Retrieves the details of an existing profile for a valid identifier. Supply the unique `id` either from a profile creation request or the profile list, and this call will return the corresponding profile details based on the _profileType_ and role in the platform.
+
+# Attributes
+
+<strong> id </strong> `string`
+
+A unique identifier is referencing a user profile.
+
+<strong> tenantId</strong> `string`
+
+A unique identifier is used for API authentication and authorization. It can be useful for this API's end users.
+
+<strong> profileType</strong> `enum`
+
+Type of a profile or end-user in the organization specified at the time of creating this profile. 
+
+_Data-type_ `enum`
+
+Consists of predefined profile type  `ORGANIZER┃INVESTOR┃FOUNDER┃INDIVIDUAL` 
+
+The variable must be equal to one of the values that have been predefined for it. This can be useful to manage a user's roles in the platform and its access to data.
+
+**Types of Profile**
+
+| Value             | Description    | 
+| -----------       | ----------- |
+| ORGANIZER         | Description that relates the business model and its       operational access in the platform or organization.  |
+| INVESTOR          | Description that relates the business model and its       operational access in the platform or organization.  |
+| INDIVIDUAL        | Description that relates the business model and its       operational access in the platform or organization.  |
+| FOUNDER           | Description that relates the business model and its       operational access in the platform or organization.  |
+
+<strong> stateOfFormation </strong> `string`
+
+The State in Which the Profile was formed if it's an Entity profile representing a business or company.
+
+<strong> countryOfFormation</strong> `string`
+
+The country in which the profile was formed if it's an entity profile representing a business or company.
+
+<strong> displayName </strong> `string`
+
+Preferred display name specified by the profile owner, if any. The maximum `string` length allowed is 1024 chars.
+
+<strong> name </strong> `string` </br> Full name of this profile. Maximum `string` length is 1024 chars.
+
+<strong> jointAccountName</strong> `string` </br> Name of the joint account if it's a joint account type. Maximum `string` length is 1024 chars.
+
+<strong> typeOfEntity</strong> `enum`
+
+_Data-type_ `enum` 
+
+Consists of predefined legal business entity type `LIMITED_LIABILITY_COMPANY┃LIMITED_PARTNERSHIP┃C_CORPORATION┃S_CORPORATION┃GENERAL_PARTNERSHIP┃501_C_NONPROFIT┃FOREIGN_ENTITY┃INDIVIDUAL┃CORPORATION`. 
+
+The variable must be equal to one of the values that have been predefined for it.
+
+<strong> jointType</strong> `enum` 
+
+A joint account refers to an account whereby two or more owners have access to the account. 
+
+_Data-type_ `enum` 
+
+Consists of predefined legal joint entity type `JOINT_TENANTS_WITH_RIGHTS_OF_SURVIVORSHIP┃TENANTS_IN_COMMON┃COMMUNITY_PROPERTY┃TENANTS_BY_ENTIRETY`. 
+
+The variable must be equal to one of the values that have been predefined for it.
+
+<strong> firstName</strong> `string` 
+
+First name of this profile if it's an individual account. Maximum `string` length is 1024 chars.
+
+<strong> lastName</strong> `string` 
+
+Last name of this profile if it's an individual account. Maximum `string` length is 1024 chars.
+
+<strong> address </strong> `object`
+
+The physical address of the Entity or Individual associated with this profile. Data returned as JSON object.
+
+  * <strong> address1 </strong> `string` </br> Constraints 2 to 1024 chars
+  * <strong> address2 </strong> `string` </br> Constraints Max 1024 chars
+  * <strong> city\* </strong> `string` </br> Constraints 2 to 1024 chars
+  * <strong> state </strong> `string` </br> Constraints 2 to 1024 chars
+  * <strong> postalCode* </strong> `string` </br> Constraints 2 to 1024 chars
+  * <strong> country* </strong> `string` </br> Constraints 2 to 1024 chars
+
+<strong> deliveryAddress </strong> `object`
+
+The Delivery Address of this Profile associated with this profile. Data returned as JSON object.
+
+  * <strong> address1* </strong> `string` </br> Constraints 2 to 1024 chars
+  * <strong> address2 </strong> `string` </br> Constraints Max 1024 chars
+  * <strong> city* </strong> `string` </br> Constraints 2 to 1024 chars
+  * <strong> state </strong> `string` </br> Constraints 2 to 1024 chars
+  * <strong> postalCode*</strong> `string` </br> Constraints 2 to 1024 chars
+  * <strong> country* </strong> `string` </br> Constraints 2 to 1024 chars
+
+<strong> foreignAddress </strong> `object`
+
+Foreign physical address of the Entity or Individual associated with this profile.
+
+  * <strong> address1*</strong> `string` </br> Constraints 2 to 1024 chars
+  * <strong> address2</strong> `string` </br> Constraints Max 1024 chars
+  * <strong> city*</strong> `string` </br> Constraints 2 to 1024 chars
+  * <strong> state</strong> `string` </br> Constraints 2 to 1024 chars
+  * <strong> postalCode*</strong> `string` </br> Constraints2 to 1024 chars
+  * <strong> country*</strong> `string` </br> Constraints2 to 1024 chars
+
+<strong> phone</strong> `string`
+
+The contact phone number of the Profile Entity or Individual.
+
+<strong> dateOfBirth</strong> `string`
+
+The Date of Birth for the Individual associated with the Profile.
+
+<strong> dateOfFormation</strong> `string`
+
+The Date of Formation for the Entity (If Entity Profile)
+
+<strong> email</strong> email
+
+The contact email of the Profile Entity or Individual. Allowed pattern `\S+@\S+$`
+
+<strong> taxDetails </strong> `object`
+
+Tax details for this profile. Data returned as JSON object.
+
+  * <strong> registrationType*</strong> `enum` </br> Entity type of the tax registration. 
+
+_Data-type_ `enum` 
+
+Consists of predefined legal tax entity registration type `INDIVIDUAL┃ENTITY┃TRUST┃JOINT`. 
+
+The variable must be equal to one of the values that have been predefined for it.
+  * <strong> taxIdentification*</strong> `object` </br> Tax document identification details. Data returned as JSON object.
+    * <strong> type</strong> `enum` </br> Type of legal tax document. 
+_Data-type_ `enum`
+Consists of predefined legal tax document identification type `ssn┃giin┃itin┃ftin┃ein`. 
+The variable must be equal to one of the value that is predefined for it.
+    * <strong> value</strong> `string` </br> Value of the tax document related to document type.
+
+<strong> title</strong> `string`
+
+The Title of the Individual associated with the profile (If Individual Profile)
+
+<strong> isUSBased</strong> `boolean`
+
+Is U.S. Based Whether the Entity is based in the U.S. or not
+
+<strong> isRIA</strong> `boolean`
+
+<strong> isERAboolean <strong> `boolean`
+
+<strong> ERAStatus</strong> `string`
+
+<strong> primaryContact</strong> `object`
+
+This can be useful to hold primary contact information for this profile.
+
+<strong> isSingleMemberLLC</strong> `boolean`
+
+Has the value _true_, if it's an entity profile representing an LLC company and if the the company consists of only one member, or the value _false_ if the company has more than one member.
+
+<strong> primarySignatory </strong> `object`
+
+Contains the information about a primary signatory specified by the profile owner for this profile.
+
+  * <strong> id</strong> `string`
+  * <strong> ownerId</strong> `string`
+  * <strong> name</strong> `string` </br> Constraints 2 to 1024 chars
+  * <strong> type</strong> `string` </br> Constraints 2 to 1024 chars
+  * <strong> title</strong> `string` </br> Constraints 2 to 1024 chars
+  * <strong> isUSBased</strong> `boolean`
+  * <strong> address</strong> `object`
+    * <strong> address1*</strong> `string` </br> Constraints 2 to 1024 chars
+    * <strong> address2</strong> `string` </br> Constraints Max 1024 chars
+    * <strong> city*</strong> `string` </br> Constraints 2 to 1024 chars
+    * <strong> state</strong> `string` </br> Constraints 2 to 1024 chars 
+    * <strong> postalCode* </strong> `string`
+    * <strong> </br> Constraints</strong> 2 to 1024 chars
+    * <strong> country*</strong> `string` </br> Constraints 2 to 1024 chars
+  * <strong> phone</strong> `string`
+  * <strong> email</strong> `string`
+  * <strong> taxDetails</strong> `object`
+    * <strong> type*</strong> `enum` Allowed `enum` values are `ssn┃itin┃ftin`
+    * <strong> value*</strong> `string`
+
+  * <strong> dateOfBirth</strong> `string` The Date of Birth for this individual
+  * <strong> stateOfFormation</strong> `string`
+  * <strong> countryOfFormation</strong> `string`
+  * <strong> taxIdType</strong> `string`
+  * <strong> taxId</strong> `string`
+
+<strong> additionalSignatories</strong> `[object]`
+
+A list Contains information about additional signatories if specified by the profile owner. 
+
+  * <strong> id</strong> `string`
+  * <strong> ownerId</strong> `string`
+  * <strong> name</strong> `string`  </br> Constraints 2 to 1024 chars
+  * <strong> type</strong> `string` </br> Constraints 2 to 1024 chars
+  * <strong> title</strong> `string` </br> Constraints 2 to 1024 chars
+  * <strong> isUSBased</strong> `boolean`
+  * <strong> address</strong> `object`
+    * <strong> address1*</strong> `string` </br> Constraints 2 to 1024 chars
+    * <strong> address2</strong> `string` </br> Constraints Max 1024 chars
+    * <strong> city*</strong> `string` </br> Constraints 2 to 1024 chars
+    * <strong> state</strong> `string` </br> Constraints</> 2 to 1024 chars
+    * <strong> postalCode*</strong> `string` </br> Constraints</strong> 2 to 1024 chars
+    * <strong> country*</strong> `string` </br> Constraints</strong> 2 to 1024 chars
+
+  * <strong> phone</strong> `string`
+  * <strong> email</strong> `string`
+  * <strong> taxDetails</strong> `object`
+    * <strong> type*</strong> `enum` Allowed ssn┃itin┃ftin
+    * <strong> value*</strong> `string`
+
+  * <strong> dateOfBirth</strong> `string` The Date of Birth for this individual
+  * <strong> stateOfFormation</strong> `string`
+  * <strong> countryOfFormation</strong> `string`
+  * <strong> taxIdType</strong> `string`
+  * <strong> taxId</strong> `string`
+
+</br>
+
+<strong> beneficialOwner</strong> `object`
+
+An Individual
+
+  * <strong> id</strong> `string`
+  * <strong> ownerId</strong> `string`
+  * <strong> name</strong> `string` </br> Constraints 2 to 1024 chars
+  * <strong> type</strong> `string` </br> Constraints 2 to 1024 chars
+  * <strong> title</strong> `string` </br> Constraints 2 to 1024 chars
+  * <strong> isUSBased</strong> `boolean`
+
+  * <strong> address</strong> `object`
+    * <strong> address1*</strong> `string` </br> Constraints 2 to 1024 chars
+    * <strong> address2</strong> `string` </br> Constraints Max 1024 chars
+    * <strong> city*</strong> `string` </br> Constraints 2 to 1024 chars
+    * <strong> state</strong> `string` </br> Constraints 2 to 1024 chars
+    * <strong> postalCode*</strong> `string` </br> Constraints  2 to 1024 chars
+    * <strong> country*</strong> `string` </br> Constraints 2 to 1024 chars
+
+  * <strong> phone</strong> `string`
+  * <strong> email</strong> `string`
+  * <strong> taxDetails</strong> `object`
+    * <strong> type*</strong> `enum` allowed ssn┃itin┃ftin
+    * <strong> value*</strong> `string`
+
+  * <strong> dateOfBirth</strong> `string` The Date of Birth for this individual
+  * <strong> stateOfFormation</strong> `string`
+  * <strong> countryOfFormation</strong> `string`
+  * <strong> taxIdType</strong> `string`
+  * <strong> taxId</strong> `string`
+
+<strong> investorStatus</strong> `[number]`
+
+Investor Status representation for Document Generation. Numbers in index correspond to checkboxes in documents, in numerical order.
+
+<strong> managerId</strong> `string`
+
+<strong> masterEntityId</strong> `string`
+
+<strong> ownerId</strong> `string`
+
+<strong> bankingUser</strong> `object`
+
+ExternalBankingUser
+
+  * <strong> id </strong> `string`
+  * <strong> accounts </strong> `[object]` </br> An _array_ list contains a set of `key:value` pairs.
+
+<strong> purchaserStatus</strong> `[number]` An _array_ list of numbers.
+
+<strong> createdAt</strong> date-time
+
+<strong> updatedAt</strong> date-time
+
+<strong> isDeleted</strong> `boolean`
+
+<strong> brokerageAccount </strong> `object`
+
+  * <strong> brokerName *</strong> `string` </br> Constraints Max 128 chars
+  * <strong> dtcNumber *</strong> `string` </br> Constraints Max 4 chars
+  * <strong> accountNumber *</strong> `string` </br> Constraints Max 64 chars
+
+<strong> offPlatformAccounts </strong> `[object]`
+
+  * <strong> routingNumber</strong> `string` </br> Routing number of a specified bank account.  Allowed pattern `[012346789][0-9]$`
+  * <strong> bankName</strong> `string` </br> Name of a specified bank.
+  * <strong> originatorName</strong> `string` </br> 
+  * <strong> accountNumber</strong> `string` </br> Account number of a specified bank account.
+
+<strong> additionalProperties </strong> `object`
+
+Description 
+
+  * <strong> formedToInvestInFund</strong> `boolean`
+  * <strong> isInvestmentCompany</strong> `boolean`
+  * <strong> isExpatriate</strong> `enum`  Allowed enum values are `permanent┃temporary`
+  * <strong> jurisdiction</strong> `string`
+  * <strong> fundDocumentTemplateId</strong> `string`
+  * <strong> passportOrId</strong> `string`
